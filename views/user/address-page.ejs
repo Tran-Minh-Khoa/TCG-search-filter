@@ -1,0 +1,207 @@
+<main>
+    <section>
+        <div class="account-nav-wrapper">
+            <div class="hstack gap-4 justify-content-center align-items-center account-nav">
+                <span class="account-nav-item"><a href="/account">Orders</a></span>
+                <span class="account-nav-item chosen"><a href="/account/addresses">Addresses</a></span>
+                <span class="account-nav-logout"><a href="/logout">Logout</a></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- IF THERE ARE NO ADDRESSES -->
+    <section>
+        <div class="empty-state-wrapper">
+            <div class="vstack gap-4 align-items-center justify-content-center">
+                <div class="icon-wrapper">
+                    <svg role="presentation" fill="none" focusable="false" stroke-width="1" width="48" height="48" class="icon icon-picto-pin" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20.223 9.51c0 5.526-5.047 10.497-7.233 12.392a1.5 1.5 0 0 1-1.98 0C8.823 20.007 3.776 15.035 3.776 9.51a8.224 8.224 0 0 1 16.447 0Zm-4.855-.484a3.368 3.368 0 1 1-6.736 0 3.368 3.368 0 0 1 6.736 0Z" fill="currentColor" fill-opacity=".12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <span class="count-bubble absolute-bubble">0</span>
+                </div>
+                <h1>You haven't saved any addresses yet.</h1>
+                <button type="button" class="black-btn" data-bs-toggle="offcanvas" data-bs-target="#addAddressOffcanvas" aria-controls="addAddressOffcanvas">Add address</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- IF THERE ARE ADDRESSES -->
+    <section>
+        <div class="section-wrapper">
+            <div class="vstack gap-4 align-items-center justify-content-center">
+                <div class="hstack gap-3 justify-content-center">
+                    <span class="title">Addresses</span>
+                    <span class="count-bubble">2</span>
+                </div>
+                <div class="container-fluid">
+                    <div class="row justify-content-center g-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="address">
+                                <div class="vstack gap-2 h-100">
+                                    <div class="address-name">Default address</div>
+                                    <p class="address-info">
+                                        First name + Last name<br>
+                                        Company<br>
+                                        Phone number<br>
+                                        Address<br>
+                                        City<br>
+                                        Zip code<br>
+                                        Country
+                                    </p>
+                                    <div class="hstack gap-3 pt-2 mt-auto">
+                                        <a data-bs-toggle="offcanvas" href="#updateAddressOffcanvas" role="button" aria-controls="updateAddressOffcanvas" class="address-link">Edit</a>
+                                        <span class="address-link">Delete</span>
+                                    </div>     
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="address">
+                                <div class="vstack gap-2 h-100">
+                                    <div class="address-name">Address 2</div>
+                                    <p class="address-info">
+                                        First name + Last name<br>
+                                        Country
+                                    </p>
+                                    <div class="hstack gap-3 pt-2 mt-auto">
+                                        <a data-bs-toggle="offcanvas" href="#updateAddressOffcanvas" role="button" aria-controls="updateAddressOffcanvas" class="address-link">Edit</a>
+                                        <span class="address-link">Delete</span>
+                                    </div>     
+                                </div>
+                            </div>
+                        </div>
+                   </div>
+                </div>
+                <button type="button" class="black-btn" data-bs-toggle="offcanvas" data-bs-target="#addAddressOffcanvas" aria-controls="addAddressOffcanvas">Add address</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Address Offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="addAddressOffcanvas" aria-labelledby="addAddressOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="addAddressOffcanvasLabel">Add address</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="vstack gap-4">
+                <p>Please fill in the information below:</p>
+                <form class="row g-3" action="/account/address/add">
+                    <div class="col-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First name">
+                            <label for="firstName">First name</label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last name">
+                            <label for="lastName">Last name</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="company" name="company" placeholder="Company">
+                            <label for="company">Company</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone">
+                            <label for="phone">Phone</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="address" name="address" placeholder="Address">
+                            <label for="address">Address</label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="city" name="city" placeholder="City">
+                            <label for="city">City</label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="Zip code">
+                            <label for="zipCode">Zip code</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="country" name="country" placeholder="Country">
+                            <label for="country">Country</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="black-btn">Save address</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update Address Offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="updateAddressOffcanvas" aria-labelledby="updateAddressOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="updateAddressOffcanvasLabel">Update address</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="vstack gap-4">
+                <form class="row g-3" action="/account/address/update">
+                    <input type="hidden" id="addressID" name="addressID" value="">
+                    <div class="col-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="updateFirstName" name="firstName" placeholder="First name">
+                            <label for="updateFirstName">First name</label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="updateLastName" name="lastName" placeholder="Last name">
+                            <label for="updateLastName">Last name</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="updateCompany" name="company" placeholder="Company">
+                            <label for="updateCompany">Company</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="updatePhone" name="phone" placeholder="Phone">
+                            <label for="updatePhone">Phone</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="updateAddress" name="address" placeholder="Address">
+                            <label for="updateAddress">Address</label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="updateCity" name="city" placeholder="City">
+                            <label for="updateCity">City</label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="updateZipCode" name="zipCode" placeholder="Zip code">
+                            <label for="updateZipCode">Zip code</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="updateCountry" name="country" placeholder="Country">
+                            <label for="updateCountry">Country</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="black-btn">Save address</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
